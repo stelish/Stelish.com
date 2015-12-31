@@ -1,0 +1,159 @@
+<html lang="en" >
+<head>
+    <!-- Angular Material style sheet -->
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <!-- Angular Material requires Angular.js Libraries -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+
+    <!-- Angular Material Library -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+
+    <script src="js/app.js"></script>
+</head>
+<body ng-app="app" ng-controller="MainCtrl" ng-cloak>
+
+    <!-- tool bars -->
+    <section>
+        <md-toolbar class="bg-white bottom-box-shadow">
+            <div class="md-toolbar-tools">
+                <md-button class="md-icon-button" aria-label="Settings" ng-click="toggleLeft()">
+                    <i class="material-icons font-colour-dark-grey">dehaze</i>
+                </md-button>
+                <h2 style="margin-left: 50px">
+                    <span class="logo-text font-colour-dark-grey">stelish creations</span>
+                </h2>
+                <span flex></span>
+                <md-button class="md-icon-button" aria-label="More" ng-click="toggleRight()">
+                    <i class="material-icons font-colour-dark-grey">more_vert</i>
+                </md-button>
+            </div>
+        </md-toolbar>
+    </section>
+
+    <section layout="row" class="bg-light-grey" flex>
+        <!-- left side -->
+        <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+            <md-toolbar class="bg-white">
+                <md-button ng-click="close()">
+                    <i class="material-icons font-colour-dark-grey">chevron_left</i>
+                </md-button>
+            </md-toolbar>
+            <md-content layout-padding ng-controller="LeftCtrl">
+                <md-button ng-click="close()" class="md-primary" hide-gt-md>
+                    Close Sidenav Left
+                </md-button>
+                <p hide-md show-gt-md>
+                    This sidenav is locked open on your device. To go back to the default behavior,
+                    narrow your display.
+                </p>
+            </md-content>
+        </md-sidenav>
+
+        <!-- body content -->
+        <md-content flex layout-fill>
+            <div layout="column" layout-fill layout-align="top center">
+                <!-- hero -->
+                <div layout="row" layout-fill layout-align="top center" class="hero-banner bg-light-white">
+                    <div flex="50" class="hero-segment">
+                        <img src="img/0115_office2_630x420.jpg">
+                    </div>
+                    <div flex="50"class="hero-segment">
+                        <div layout="column" layout-align="center center" class="hero-caption">
+                            <span class="md-headline hero-caption-heading">More than just a web page. </span>
+                            <span class="md-subhead hero-caption-subheading">We create solutions that work on all devices. Responsive web design, mobile app development is not only a must but very achieveable in recent times. </span>
+                        </div>
+
+                        <md-button class="md-fab md-default hero-btn" ng-disabled="true" aria-label="Comment">
+                            <i class="material-icons hero-btn-icon">expand_more</i>
+                        </md-button>
+                    </div>
+
+                </div>
+                <!-- responsive development -->
+                <div layout="row" layout-fill layout-align="center center" class="hero-banner bg-orange">
+                    <div layout="column" layout-padding flex="50">
+                        <span class="md-headline hero-caption-heading">Responsive Web Design. </span>
+                        <span class="md-subhead hero-caption-subheading">Design your web content to display on all devices. </span>
+                    </div>
+                    <div flex="50">
+                        <img  src="img/responsive_web_design.png" style="width:90%">
+                    </div>
+                </div>
+
+                <!-- quote -->
+                <div layout="column" layout-padding layout-align="center center" class="hero-banner-quote">
+                    <span class="hero-quote">
+                        <i class="material-icons" style="transform: rotateZ(180deg);color:#999">format_quote</i> more Google searches take place on mobile devices than on computers in 10 countries including the US and Japan. <i class="material-icons" style="color:#999">format_quote</i>
+                    </span>
+                    <span style="font-size: 14px;text-align: center">Google.</span>
+                </div>
+
+                <!-- app development -->
+                <div layout="row" layout-fill layout-align="top center" class="hero-banner bg-green">
+                    <div flex="50"  layout-padding>
+                        <img class="hero-app-img" src="img/intro-product.png">
+                    </div>
+                    <div flex="50" layout="column">
+                        <span class="md-headline hero-caption-heading">One code base for native app and web</span>
+                        <span class="md-subhead hero-caption-subheading">Save's money and speeds up delivery </span>
+                    </div>
+                </div>
+                <!-- promo development -->
+                <div layout="row" layout-fill layout-align="top center" class="hero-banner">
+                    <div flex="50">
+
+                    </div>
+                    <div flex="50">
+
+                    </div>
+                </div>
+                <!-- seo development -->
+                <div layout="row" layout-fill layout-align="top center" class="hero-banner">
+                    <div flex="50">
+
+                    </div>
+                    <div flex="50">
+
+                    </div>
+                </div>
+
+                <!-- footer -->
+                <div layout="column" layout-fill layout-align="top center" class="footer-content">
+
+                </div>
+            </div>
+
+            <div flex></div>
+        </md-content>
+
+        <!-- right side -->
+        <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
+            <md-toolbar class="bg-white">
+                <md-button ng-click="close()">
+                    <i class="material-icons font-colour-dark-grey">chevron_right</i>
+                </md-button>
+            </md-toolbar>
+            <md-content ng-controller="RightCtrl" layout-padding>
+                <form>
+                    <md-input-container>
+                        <label for="testInput">Test input</label>
+                        <input type="text" id="testInput"
+                               ng-model="data" md-autofocus>
+                    </md-input-container>
+                </form>
+                <md-button ng-click="close()" class="md-primary">
+                    Close Sidenav Right
+                </md-button>
+            </md-content>
+        </md-sidenav>
+    </section>
+
+
+
+</body>
+</html>

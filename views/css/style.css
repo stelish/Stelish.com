@@ -1,0 +1,105 @@
+/* import brilliant font */
+@font-face {
+    font-family: 'Brilliant';
+    src: url('../fonts/BriLliant.ttf'); /* IE9 Compat Modes */
+    src: url('../fonts/BriLliant.ttf?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts/BriLliant.ttf') format('woff2'), /* Super Modern Browsers */
+    url('../fonts/BriLliant.ttf') format('woff'), /* Pretty Modern Browsers */
+    url('../fonts/BriLliant.ttf')  format('truetype') /* Safari, Android, iOS */
+}
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300italic,300,100italic,700,900);
+
+.bottom-box-shadow {
+    box-shadow: 0px 2px 5px #ccc;
+}
+
+.logo-text {
+    font-family: 'Brilliant', sans-serif;
+    font-size: 48px;
+}
+
+.font-colour-dark-grey {
+    color: #333 !important;
+}
+
+.bg-white {
+    background-color: #fff !important;
+}
+
+.bg-light-grey {
+    background-color: #eee !important;
+}
+
+.bg-orange {
+    background-color: #FF9800 !important;
+}
+
+.bg-green {
+    background-color: #4CAF50 !important;
+}
+
+.hero-banner {
+    min-height: 400px;
+    min-width: 100%;
+}
+
+.hero-banner-quote {
+    min-height: 200px;
+    min-width: 100%;
+}
+
+.hero-segment {
+    overflow: hidden;
+}
+
+.hero-btn {
+    bottom: 295px;
+    left: 50%;
+    margin-left: -25px;
+    background-color: rgb(255,64,129) !important;
+    z-index: 10000 !important;
+    position: absolute;
+}
+.hero-btn-icon{
+    font-size: 40px;
+    color: #fff;
+}
+
+.hero-caption {
+    font-family: 'Roboto', sans-serif;
+    padding: 0 90px;
+    text-align: center;
+    color: #999;
+
+}
+
+.hero-caption-heading {
+    font-size: 48px;
+    line-height: 1.0;
+    padding-bottom: 20px;
+    font-weight: 100;
+}
+.hero-caption-subheading{
+    font-size: 20px;
+    font-weight: 100;
+}
+
+.hero-app-img{
+    width:95%;
+}
+
+.hero-quote{
+    font-size: 32px;
+    font-style: italic;
+    color: #000;
+    text-align: center;
+    font-weight: 100;
+    max-width: 800px;
+}
+
+.footer-content{
+    background-color: #333333;
+    min-height: 500px;
+}
+
