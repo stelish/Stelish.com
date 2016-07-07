@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title></title>
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,400italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Covered+By+Your+Grace' rel='stylesheet' type='text/css'>
     <style>
         body{
             background: #eee;
@@ -115,7 +116,18 @@
         }
 
         .magenta{
-            background-color: #D81B60;
+            background: rgba(216,27,96,0.9);
+            font-size: 26px;
+        }
+
+        .orange{
+            background: rgba(255,87,34,0.9);
+            font-size: 26px;
+        }
+
+        .brown{
+            background: rgba(121,85,72,0.9);
+            font-size: 26px;
         }
 
     </style>
@@ -239,7 +251,7 @@
                 .ava-offerings{
                     width: 100%;
                     margin-top: 10px;
-                    overflow: hidden;
+                    overflow: scroll;
                     transition: all 0.9s ease-out;
                     height: 200px;
                     z-index: -99;
@@ -253,6 +265,7 @@
                     display: block;
                     margin-top: -300px;
                     transition: all 0.9s ease-out;
+
                 }
 
                 .ava-speech-inner{
@@ -404,16 +417,18 @@
                         height: auto;
                     }
                     .card{
-                        min-width: 200px;
+
+                        min-width: 400px;
                         max-width: 400px !important;
-                    }
-                    .card-activites{
-                        display: inline-flex;
-                        max-width: 400px;
-                        max-height: 150px;
+                        min-height: 190px;
                         position: relative;
                     }
+                    .card-activites{
+                        background-image: url("https://a.travel-assets.com/mediavault.le/media/4c2c09df5214d54805b617fd7b68cca40258d8ce.jpeg");
+                        display: none;
+                    }
                     .card-label{
+                        font-family: 'Covered By Your Grace', cursive;
                         color: #fff;
                         padding: 5px 15px;
                         position: absolute;
@@ -426,14 +441,17 @@
                     }
 
                     .card-hotels{
+                        background-image: url("http://blogs-images.forbes.com/lauriewerner/files/2014/08/0901_FL-park-hyatt-sydney_1325x745.jpg");
                         display: none;
                     }
 
                     .card-cars{
+                        background-image: url("http://www.tahoesbest.com/sites/default/files/billboard/car-rental-5-18-1_C.jpg?1337377785");
                         display: none;
                     }
 
                     .card-dining{
+                        background-image: url("https://grabaseat.co.nz/resource/2bb223d9-a8b1-4f7e-8482-84b35923436a?width=1140&height=300");
                         display: none;
                     }
 
@@ -442,6 +460,7 @@
                     }
 
                     .card-packages{
+                        background-image: url("https://grabaseat.co.nz/resource/e1e537f0-261e-48f0-b102-0814f5f3c2a8?height=705&width=940");
                         display: none;
                     }
 
@@ -672,29 +691,25 @@
 
 
                 <!-- activities -->
-                <div class="card card-activites shadow card-hidden">
-                    <div class="ava-card-hotels">
-                        <img src="destimages/sydney.jpeg">
-                    </div>
-                    <div class="ava-card-hotels-thumbnails">
-                        <div>
-                            <img src="destimages/sydney-opera-house.jpeg">
-                        </div>
-                        <div>
-                            <img src="destimages/sydney-themes.jpeg">
-                        </div>
-                    </div>
-                    <div class="card-label magenta">
-                        activites
+                <div class="card card-activites shadow">
+                    
+                    <div class="card-label orange">
+                        activites from $39 per person
                     </div>
                 </div>
 
                 <!-- packages -->
                 <div class="card card-packages shadow">
+                    <div class="card-label magenta">
+                        packages from $2299 per person
+                    </div>
                 </div>
 
                 <!-- car -->
                 <div class="card card-cars shadow">
+                    <div class="card-label brown">
+                        rental cars from $49 per day
+                    </div>
                 </div>
 
                 <!-- weather -->
@@ -807,6 +822,9 @@
 
                 <!-- dining -->
                 <div class="card card-dining shadow">
+                    <div class="card-label magenta">
+                        meals from $19 per person
+                    </div>
                 </div>
             </div>
 
@@ -918,9 +936,10 @@
             }
             else if(speech.indexOf('yes','please','this') != -1){
                 toggleAvaChoice();
+                destination = 'sydney';
                 if(avaState === avaStateEnum.FLIGHT_CHOSEN){
                     avaState = avaStateEnum.CHOOSING_PAYMENT;
-                    destination = 'sydney';
+
                     setAvaSpeech("Please confirm the CVV, or type it in below");
                 }else{
                     setAvaSpeech("Ok. There are a couple of Friday evening flight options, I'm looking up the prices now");
@@ -932,6 +951,7 @@
             else if(speech.indexOf('nz0711','nz 0711','aussie super 26') != -1){
                 avaState = avaStateEnum.FLIGHT_CHOSEN;
                 toggleAvaChoice();
+                handleDealDisplays(false);
                 setAvaSpeech("Ok. I'm booking Miss Courtney Bramwell one seat + bag ticket on NZ0711 on Friday 8 Jul. Would you like to pay with your stored ANZ Platinum Airpoints credit card?");
                 displayDeals(null);
             }
@@ -939,6 +959,7 @@
             else if(speech.indexOf('nz0706','nz 0706') != -1){
                 avaState = avaStateEnum.FLIGHT_CHOSEN;
                 toggleAvaChoice();
+                handleDealDisplays(false);
                 setAvaSpeech("Ok. I'm booking Miss Courtney Bramwell one seat + bag ticket on NZ0706 on Friday 8 July. Would you like to pay with your stored ANZ Platinum Airpoints credit card?");
                 displayDeals(null);
             }
@@ -977,6 +998,7 @@
             // set state
             avaState = avaStateEnum.CHOOSING_FLIGHT;
             setAvaSpeech("NZ0711 departing at 1840 will cost $596 return, or NZ0706 departing at 2040 will cost $496 return");
+            toggleOfferingView();
         }
 
         var recognizing = false;
@@ -1085,7 +1107,7 @@
         }
 
         function handleNoDestination(){
-            if(destination !== 'undefined'){setAvaSpeech('where would you like to go?')}
+            if(destination === 'undefined'){setAvaSpeech('where would you like to go?')}
         }
 
         function setPreferences(item){
@@ -1134,21 +1156,40 @@
         }
 
         function setOptionsStatus(elem){
-            if(elem.className !== 'ava-options-active'){
-                elem.className = 'ava-options-active';
-            }else{
-                elem.className = "";
+            if(elem){
+                if(elem.className !== 'ava-options-active'){
+                    elem.className = 'ava-options-active';
+                }else{
+                    elem.className = "";
+                }
             }
         }
 
+        var numElems = 2;
+
         function setCardStatus(elem){
+
             if(elem){
                 if(elem.className.indexOf('card-active') !== -1){
+                    handleDealDisplays(false);
                     elem.className = elem.className.split('card-active')[0];
-
                 }else{
+                    handleDealDisplays(true);
                     elem.className += ' card-active';
                 }
+            }
+        }
+
+        function handleDealDisplays(adding){
+            var container = document.getElementsByClassName('ava-offerings-inner')[0];
+            if(adding){
+                numElems++;
+                if(numElems > 3){
+                    container.style.width = (container.offsetWidth + 400) + 'px';
+                }
+            }else{
+                numElems--;
+                container.style.width = (container.offsetWidth - 400) + 'px';
             }
         }
 
@@ -1187,9 +1228,9 @@
 
         function setWeatherOptions(){
             if(destination !== 'undefined'){
-                callAjax('http://api.openweathermap.org/data/2.5/forecast?q='+destination+',us&mode=json&appid=96c6c819dc7c7501724f6b8f4a41ac1b',function(res){
-                    console.log(res);
-                });
+//                callAjax('http://api.openweathermap.org/data/2.5/forecast?q='+destination+',us&mode=json&appid=96c6c819dc7c7501724f6b8f4a41ac1b',function(res){
+//                    console.log(res);
+//                });
             }
             // show widget
 
