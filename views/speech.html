@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,400italic' rel='stylesheet' type='text/css'>
+    <style>
+        body{
+            background: #eee;
+            font-family: "Roboto Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            margin:0;
+        }
+
+        #q {
+            height: 20px;
+            width: 100%;
+            border: solid 1px #666;
+            border-radius: 6px;
+            padding: 5px 10px;
+            font-size: 24px;
+            font-weight: 100;
+            line-height: 1.2;
+            color: #fff;
+            background-color: #555;
+            text-align: center;
+        }
+        #img-bg{
+            width: 100%;
+            height: 100%;
+            -webkit-transition: opacity 3s ease-in-out;
+            -moz-transition: opacity 3s ease-in-out;
+            -ms-transition: opacity 3s ease-in-out;
+            -o-transition: opacity 3s ease-in-out;
+            opacity: 1;
+            border: none;
+            margin-left: -10px;
+            margin-right: -10px;
+            margin-top: -10px;
+            max-height: 350px;
+        }
+        .out {
+            opacity: 0 !important;
+        }
+
+        .header{
+            height: 50px;
+            width: 100%;
+            padding: 15px 5px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .content{
+            position: relative;
+
+        }
+
+        .offering{
+            margin-top: 100px;
+            text-align: center;
+        }
+        .offering ul{
+            list-style: none;
+        }
+        .card{
+            background: white;
+            width: 40%;
+            min-height: 150px;
+            padding: 5px;
+            border-radius: 4px;
+            margin: 0 auto;
+            transition: all 0.5s ease;
+        }
+        .shadow {
+            -webkit-box-shadow: 0 1px 1px 1px #ccc;
+            -moz-box-shadow:    0 1px 1px 1px #ccc;
+            box-shadow:         0 1px 1px 1px #ccc;
+        }
+        .confirmBtn{
+            height: 20px;
+            width: 40%;
+            color: #1976D2;
+            padding: 10px 10px 3px;
+            text-align: center;
+            font-size: 11px;
+            margin: 5px;
+            border: solid 1px #584258;
+        }
+
+        .denyBtn{
+            height: 20px;
+            width: 20%;
+            background-color: #ff0000;
+            color: #fff;
+            padding: 10px 10px 3px;
+            text-align: center;
+            font-size: 11px;
+            margin: 5px;
+        }
+        .profile-welcome{
+            position: absolute;
+            top: 15px;
+            right: 30px;
+            color: white;
+        }
+
+        .purple{
+            background-color: #9C27B0 !important;
+        }
+
+        .blue{
+            background: #1976D2;
+        }
+
+        .magenta{
+            background-color: #D81B60;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- widget -->
+    <div id="ava-widget">
+        <div class="ava-toolbar">
+            <style>
+                #ava-widget{
+                    background: #eee;
+                    overflow: hidden;
+                    max-width: 1500px;
+                    min-height: 400px;
+                }
+                .ava-toolbar{
+                    width: 100%;
+                    height: 110px;
+                    padding: 15px;
+                    background-color: #666;
+                    color: #ffffff;
+                    -webkit-box-shadow: 0 -5px 20px 10px #000;
+                    -moz-box-shadow:    0 -5px 20px 10px #000;
+                    box-shadow:         0 -5px 20px 10px #000;
+                    position: relative;
+                    display: inline-flex;
+                    z-index: 20000;
+                }
+                .row {
+                    display:inline-flex;
+                }
+
+                .ava-container button{
+                    background: #1976D2;
+                    border: none;
+                    color: #fff;
+                    padding: 10px 20px;
+                    margin-left: 38px;
+                }
+
+                .ava-wrapper{
+                    border-radius: 50%;
+                    min-width: 100px;
+                    max-width: 100px;
+                    height: 100px;
+                    overflow: hidden;
+                    border: solid 3px black;
+                    float:left;
+                    background: #fff;
+                }
+
+                .ava-wrapper blockquote{
+                    color: #fff;
+                }
+                .ava{
+                    width: 100%;
+                    height: 100%;
+                }
+                .ava-social{
+                    position: absolute;
+                    top:10px;
+                    right:40px;
+                    display: inline-flex;
+                }
+                .ava-social > div{
+                    margin:5px;
+                }
+
+                #ava-speech{
+                    text-align: left;
+                    font-weight: 100;
+                    font-size: 20px;
+                    font-style: italic;
+                    margin:0;
+                }
+                #ava-choices{
+                    width: 100%;
+                    position: relative;
+                    display: none;
+                    transition: all 0.9s ease-out;
+                }
+                .ava-input{
+                    width: 100%;
+                }
+                .ava-buttons{
+                    display: inline-flex;
+                    position: absolute;
+                    right: 0;
+                }
+                .ava-no{
+                    width: 40px;
+                    height: 20px;
+                    text-align: center;
+                    padding: 5px 10px;
+                    border: solid 1px white;
+                    border-radius: 6px;
+                    color: white;
+                    margin-left: 5px;
+                }
+                .ava-yes{
+                    width: 100px;
+                    height: 20px;
+                    text-align: center;
+                    padding: 5px 10px;
+                    /* border: solid 1px white; */
+                    border-radius: 6px;
+                    color: white;
+                    margin-right: 5px;
+                }
+                .ava-label{
+                    color: #fff;
+                    margin: 0 5px;
+                }
+                .interactions-container{
+                    width: 100%;
+                    display: inline-flex;
+                    border-top: solid 1px #aaa;
+                    padding-top: 5px;
+                    margin-top: 5px;
+                }
+                .ava-offerings{
+                    width: 100%;
+                    margin-top: 10px;
+                    overflow: hidden;
+                    transition: all 0.9s ease-out;
+                    height: 200px;
+                    z-index: -99;
+                    padding-bottom: 5px;
+                }
+                .ava-offerings-inner{
+                    display: inline-flex;
+                    width: 100%;
+                }
+                .ava-offerings-hidden{
+                    display: block;
+                    margin-top: -300px;
+                    transition: all 0.9s ease-out;
+                }
+
+                .ava-speech-inner{
+                    display: inline-flex;
+                    margin-bottom: 5px;
+                    min-height: 70px;
+                    max-height: 70px;
+                }
+                .ava-options-header{
+                    background-color: white;
+                    width: 100%;
+                    height: 20px;
+                    padding: 5px 15px;
+                    z-index: 19999;
+                }
+                .ava-options-header-ul{
+                    list-style: none;
+                    margin: 0 auto;
+                    display: inline-flex;
+                }
+                .ava-options-header-ul > li{
+                    font-weight: normal;
+                    color: #999;
+                    padding: 5px 35px;
+                }
+                .ava-options-active {
+                    color: #333 !important;
+                    font-weight: bold !important;
+                }
+            </style>
+
+            <!-- ava -->
+            <div class="ava-wrapper row">
+                <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                     width="100" height="100" viewBox="0 0 225.000000 225.000000"
+                     preserveAspectRatio="xMidYMid meet">
+
+                    <g transform="translate(0.000000,225.000000) scale(0.100000,-0.100000)"
+                       fill="#000000" stroke="none">
+                        <path d="M985 2191 c-120 -16 -285 -71 -385 -128 -198 -113 -385 -324 -462
+                                -517 -137 -349 -102 -712 98 -1013 198 -298 527 -473 887 -473 364 0 692 174
+                                891 473 211 317 239 711 76 1054 -141 296 -399 506 -720 585 -85 21 -292 31
+                                -385 19z m380 -545 c109 -64 125 -202 33 -281 -89 -76 -228 -39 -228 61 0 41
+                                32 74 74 74 34 0 66 -25 66 -52 0 -24 17 -23 30 1 47 89 -66 154 -177 100 -49
+                                -23 -182 -149 -262 -246 l-43 -53 396 0 c218 0 396 -2 396 -5 0 -2 -10 -25
+                                -22 -50 l-22 -45 -489 0 -489 0 42 53 c49 61 166 192 264 294 162 170 308 220
+                                431 149z m215 -555 c0 -5 -9 -29 -20 -55 l-21 -46 -384 0 c-226 0 -385 -4
+                                -385 -9 0 -5 14 -45 31 -90 35 -92 76 -153 122 -181 35 -22 97 -26 128 -9 24
+                                13 40 50 32 78 -5 21 -6 21 -35 -4 -37 -31 -62 -32 -93 0 -42 41 -30 102 25
+                                130 106 55 232 -59 199 -180 -16 -58 -43 -90 -95 -115 -38 -19 -57 -22 -110
+                                -17 -100 8 -177 67 -235 181 -31 59 -129 302 -129 318 0 4 218 8 485 8 270 0
+                                485 -4 485 -9z"/>
+                    </g>
+                </svg>
+                <!--<img class="ava" src="destimages/koru.jpeg">-->
+            </div>
+
+            <div style="margin: 0 auto; max-width: 750px; min-width: 750px">
+                <div class="ava-speech-inner">
+                    <p class="ava-label">Ava:</p><p id="ava-speech">Hi</p>
+                </div>
+                <!-- interaction tools -->
+                <div class="interactions-container">
+                    <!-- speech input-->
+                    <div class="ava-input">
+                        <input onchange="handleSpeech(value)" id="q" type="text" placeholder="type here">
+                    </div>
+                    <!-- options -->
+                    <div id="ava-choices">
+                        <div class="ava-buttons">
+                            <div class="ava-yes purple" onclick="handleSpeech('yes')">YES</div>
+                            <div class="ava-no">NO</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div style="position: absolute; right:40px;bottom:0">
+                <p style="FONT-SIZE: 10px;float: right; color: #333">SAY AVA TO BEGIN YOUR SEARCH</p>
+            </div>
+
+            <div class="ava-social">
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
+                    </svg>
+                </div>
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                    </svg>
+                </div>
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/></svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="ava-options-header shadow">
+            <ul class="ava-options-header-ul">
+                <li id="ava-options-flight"  onclick="setPreferences('flights')">
+                    flights
+                </li>
+                <li id="ava-options-hotels" onclick="setPreferences('hotels')">
+                    hotels
+                </li>
+                <li id="ava-options-cars" onclick="setPreferences('cars')">
+                    cars
+                </li>
+                <li id="ava-options-packages" onclick="setPreferences('packages')">
+                    packages
+                </li>
+                <li id="ava-options-activities" onclick="setPreferences('activities')">
+                    activities
+                </li>
+                <li id="ava-options-dining" onclick="setPreferences('dining')">
+                    dinning
+                </li>
+                <li id="ava-options-weather" onclick="setPreferences('weather')">
+                    weather
+                </li>
+            </ul>
+        </div>
+
+        <div class="ava-offerings ava-offerings-hidden">
+            <div class="ava-offerings-inner">
+                <style>
+                    .ava-card-hotels{
+                        width: 75%;
+                        height: 100%;
+                        overflow: hidden;
+                        margin-right: 1px;
+                    }
+                    .ava-card-hotels > img{
+                        width: auto;
+                        height: 100%;
+                    }
+                    .ava-card-hotels-thumbnails{
+                        width: 50%;
+                    }
+                    .ava-card-hotels-thumbnails > div{
+                        overflow: hidden;
+                        width: 100%;
+                        height:50%
+                    }
+                    .ava-card-hotels-thumbnails > div > img{
+                        width: 100%;
+                        height: auto;
+                    }
+                    .card{
+                        min-width: 200px;
+                        max-width: 400px !important;
+                    }
+                    .card-activites{
+                        display: inline-flex;
+                        max-width: 400px;
+                        max-height: 150px;
+                        position: relative;
+                    }
+                    .card-label{
+                        color: #fff;
+                        padding: 5px 15px;
+                        position: absolute;
+                        bottom: 10px;
+                        left: 0;
+                    }
+
+                    .card-flights{
+                        font-size: 11px;
+                    }
+
+                    .card-hotels{
+                        display: none;
+                    }
+
+                    .card-cars{
+                        display: none;
+                    }
+
+                    .card-dining{
+                        display: none;
+                    }
+
+                    .card-hidden{
+                        display: none;
+                    }
+
+                    .card-packages{
+                        display: none;
+                    }
+
+                    .card-weather{
+                        display: none;
+                    }
+
+                    .card-active{
+                        display: block !important;
+                    }
+                </style>
+                <!-- flight deals -->
+                <style>
+                    .ava-card-flight-offering{
+                        max-width: 400px;
+                        min-width: 400px !important;
+                        max-height: 300px;
+                        position: relative;
+                        padding: 5px 15px;
+                    }
+                    .ava-card-flight{
+                        width: 50%;
+                        padding: 5px;
+                    }
+                    .ava-card-flight-title{
+                        font-size: 12px;
+                    }
+                    .ava-card-flight-direction{
+                        font-size: 28px;
+                        font-weight: 400;
+                    }
+                    .ava-card-flight-time{
+                        font-size: 12px;
+                        font-weight: 200;
+                    }
+                    .ava-card-flight-details{
+                        display: inline-flex;
+                        width: 100%;
+                    }
+                    .ava-card-flights-toggle{
+                        color: white;
+                        text-align: center;
+                        height: 15px;
+                        padding-top: 3px;
+                        width: 100%;
+                        margin: 5px 0;
+                    }
+                    .ava-card-flights-total,.ava-card-flights-price{
+                        font-size: 24px;
+                        font-weight: bold;
+                    }
+                    .ava-card-flights-underline{
+                        width: 100%;
+                        border-bottom: solid 1px #999;
+                    }
+                    .ava-card-flights-price-container{
+                        width: 100%;
+                        display: inline-flex;
+                        margin-top: 5px;
+                    }
+                    .ava-card-flights-payment{
+                        display: inline-flex;
+                        margin-top: 5px;
+                        width: 100%;
+                    }
+                    .ava-card-flights-payment > div{
+                        font-size: 12px;
+                        font-weight: 200;
+                    }
+                    .ava-card-flights-cc{
+                        display: inline-flex;
+                    }
+                    .ava-card-flights-booked{
+                        padding: 5px;
+                        display: none;
+                        font-size: 14px;
+                        font-weight: bold;
+                        color: #2196F3;
+                        text-align: right;
+                    }
+
+                </style>
+
+                <div id="flightOpt1" class="card card-flights shadow ava-card-flight-offering" onclick="setFlightsOptions('NZ0711')">
+                    <div style="display: inline-flex; width:100%;">
+                        <div class="ava-card-flight">
+                            <div class="ava-card-flight-title">FRIDAY 1 JULY</div>
+                            <div class="ava-card-flight-direction">AKL - SYD</div>
+                            <div class="ava-card-flight-details">
+                                <div style="width: 50%">
+                                    <div>
+                                        departs
+                                    </div>
+                                    <div class="ava-card-flight-time">
+                                        6:40 PM
+                                    </div>
+                                </div>
+                                <div style="width: 50%">
+                                    <div>
+                                        arrives
+                                    </div>
+                                    <div class="ava-card-flight-time">
+                                        9:10 PM
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ava-card-flight-time">
+                                seat 7C, 1 Bag
+                            </div>
+                        </div>
+
+                        <div class="ava-card-flight">
+                            <div class="ava-card-flight-title">SUNDAY 3 JULY</div>
+                            <div class="ava-card-flight-direction">SYD - AKL</div>
+                            <div class="ava-card-flight-details">
+                                <div style="width:50%;">
+                                    <div>
+                                        departs
+                                    </div>
+                                    <div class="ava-card-flight-time">
+                                        8:00 PM
+                                    </div>
+                                </div>
+                                <div style="width:50%;">
+                                    <div>
+                                        arrives
+                                    </div>
+                                    <div class="ava-card-flight-time">
+                                        10:10 PM
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                seat 7C, 1 Bag
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ava-card-flights-toggle purple">VIEW OR EDIT DETAILS</div>
+                    <div class="ava-card-flights-price-container">
+                        <div class="ava-card-flights-total">TOTAL</div>
+                        <div class="ava-card-flights-underline"></div>
+                        <div class="ava-card-flights-price">$596.00</div>
+                    </div>
+                    <div class="ava-card-flights-booked">
+                        Booked
+                    </div>
+                    <div class="ava-card-flights-payment">
+                        <div style="width: 80%">Pay with Visa ending:</div>
+                        <div class="ava-card-flights-cc">
+                            <div style="padding:3px">CVV:</div>
+                            <input id="cvv" style="width:40px; height: 15px" type="text" onchange="handleSpeech(value)">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="flightOpt2" class="card card-flights shadow ava-card-flight-offering" onclick="setFlightsOptions('NZ0706')">
+                    <div style="display: inline-flex; width:100%;">
+                        <div class="ava-card-flight">
+                            <div class="ava-card-flight-title">FRIDAY 1 JULY</div>
+                            <div class="ava-card-flight-direction">AKL - SYD</div>
+                            <div class="ava-card-flight-details">
+                                <div style="width: 50%">
+                                    <div>
+                                        departs
+                                    </div>
+                                    <div class="ava-card-flight-time">
+                                        8:40 PM
+                                    </div>
+                                </div>
+                                <div style="width: 50%">
+                                    <div>
+                                        arrives
+                                    </div>
+                                    <div class="ava-card-flight-time">
+                                        11:10 PM
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ava-card-flight-time">
+                                seat 7C, 1 Bag
+                            </div>
+                        </div>
+
+                        <div class="ava-card-flight">
+                            <div class="ava-card-flight-title">SUNDAY 3 JULY</div>
+                            <div class="ava-card-flight-direction">SYD - AKL</div>
+                            <div class="ava-card-flight-details">
+                                <div style="width:50%;">
+                                    <div>
+                                        departs
+                                    </div>
+                                    <div class="ava-card-flight-time">
+                                        4:00 PM
+                                    </div>
+                                </div>
+                                <div style="width:50%;">
+                                    <div>
+                                        arrives
+                                    </div>
+                                    <div class="ava-card-flight-time">
+                                        6:10 PM
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                seat 7C, 1 Bag
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ava-card-flights-toggle purple">VIEW OR EDIT DETAILS</div>
+                    <div class="ava-card-flights-price-container">
+                        <div class="ava-card-flights-total">TOTAL</div>
+                        <div class="ava-card-flights-underline"></div>
+                        <div class="ava-card-flights-price">$496.00</div>
+                    </div>
+                    <div class="ava-card-flights-booked">
+                        Booked
+                    </div>
+                    <div class="ava-card-flights-payment">
+                        <div style="width: 80%">Pay with Visa ending:</div>
+                        <div class="ava-card-flights-cc">
+                            <div style="padding:3px">CVV:</div>
+                            <input id="cvv" style="width:40px; height: 15px" type="text" onchange="handleSpeech(value)">
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- activities -->
+                <div class="card card-activites shadow card-hidden">
+                    <div class="ava-card-hotels">
+                        <img src="destimages/sydney.jpeg">
+                    </div>
+                    <div class="ava-card-hotels-thumbnails">
+                        <div>
+                            <img src="destimages/sydney-opera-house.jpeg">
+                        </div>
+                        <div>
+                            <img src="destimages/sydney-themes.jpeg">
+                        </div>
+                    </div>
+                    <div class="card-label magenta">
+                        activites
+                    </div>
+                </div>
+
+                <!-- packages -->
+                <div class="card card-packages shadow">
+                </div>
+
+                <!-- car -->
+                <div class="card card-cars shadow">
+                </div>
+
+                <!-- weather -->
+                <style>
+                    .card-weather-img{
+                        height:60%;
+                        width: 100%;
+                        overflow: hidden;
+                        position: relative;
+                        background-position: 100% 40%;
+                    }
+                    .card-weather-bottom{
+                        height:40%;
+                        width: 100%;
+                        overflow: hidden;
+                    }
+
+                    .card-weather-bottom{
+                        border-top: solid 1px #ccc;
+                    }
+                    .card-weather-ul{
+                        display: inline-flex;
+                        list-style: none;
+                        padding: 0;
+                        width: 100%;
+                        margin: 0;
+                    }
+                    .card-weather-li {
+                        height: 100%;
+                        width: 25%;
+                        color: #999;
+                    }
+                    .card-weather-li > svg{
+                        margin: 0 auto;
+                        /* text-align: center; */
+                        margin-left: 25px;
+                    }
+                    .card-weather-li > h4{
+                        padding: 0;
+                        margin-top: 0;
+                        margin-bottom: 0;
+                        font-size: 12px;
+                        /* text-align: center; */
+                        margin-left: 32px;
+                    }
+                    .card-weather-temp{
+                        text-align: center; margin-top: 0;font-size: 12px;
+                    }
+                    .card-weather-over{
+                        position: absolute;
+                        top:0;
+                        left:0;
+                        width: 100%;
+                        height: 100%;
+                        display: inline-flex;
+                        background-color: rgba(0, 0, 0, 0.1);
+                    }
+                    .card-weather-city{
+                        width: 50%;
+                        color: #fff;
+                        font-size: 20px;
+                        padding-left: 60px;
+                        padding-top: 10px;
+                    }
+                    .card-weather-degrees{
+                        font-size: 80px;
+                        text-align: center;
+                        width: 50%;
+                        color: #fff;
+                        padding-top: 10px;
+                    }
+                </style>
+                <div class="card card-weather shadow">
+                    <div class="card-weather-img">
+                        <div class="card-weather-over">
+                            <div class="card-weather-city">
+                                <svg id="card-weather-sunny" xmlns="http://www.w3.org/2000/svg" fill="#fff" width="72" height="72" viewBox="0 0 24 24"><path d="M4.069 13h-4.069v-2h4.069c-.041.328-.069.661-.069 1s.028.672.069 1zm3.034-7.312l-2.881-2.881-1.414 1.414 2.881 2.881c.411-.529.885-1.003 1.414-1.414zm11.209 1.414l2.881-2.881-1.414-1.414-2.881 2.881c.528.411 1.002.886 1.414 1.414zm-6.312-3.102c.339 0 .672.028 1 .069v-4.069h-2v4.069c.328-.041.661-.069 1-.069zm0 16c-.339 0-.672-.028-1-.069v4.069h2v-4.069c-.328.041-.661.069-1 .069zm7.931-9c.041.328.069.661.069 1s-.028.672-.069 1h4.069v-2h-4.069zm-3.033 7.312l2.88 2.88 1.415-1.414-2.88-2.88c-.412.528-.886 1.002-1.415 1.414zm-11.21-1.415l-2.88 2.88 1.414 1.414 2.88-2.88c-.528-.411-1.003-.885-1.414-1.414zm2.312-4.897c0 2.206 1.794 4 4 4s4-1.794 4-4-1.794-4-4-4-4 1.794-4 4zm10 0c0 3.314-2.686 6-6 6s-6-2.686-6-6 2.686-6 6-6 6 2.686 6 6z"/></svg>
+                                <div>Sydney</div>
+                            </div>
+                            <div class="card-weather-degrees">
+                                24&#176;
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-weather-bottom">
+                        <ul class="card-weather-ul">
+                            <li class="card-weather-li">
+                                <h4>SAT</h4>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="#999" width="36" height="36" viewBox="0 0 24 24"><path d="M2.396 12h-2.396v-2h2.396v2zm7.604-6.458v-3.542h-2v3.542h2zm-4.793.876l-2.156-2.156-1.414 1.414 2.156 2.156 1.414-1.414zm9.461-2.396l-2.115 2.114 1.414 1.414 2.115-2.114-1.414-1.414zm-11.7 10.907l-2.198 1.919 1.303 1.517 2.198-1.919-1.303-1.517zm21.032 2.793c0 2.362-1.95 4.278-4.354 4.278h-10.292c-2.404 0-4.354-1.916-4.354-4.278 0-.77.211-1.49.574-2.113-.964-.907-1.574-2.18-1.574-3.609 0-2.762 2.238-5 5-5 1.329 0 2.523.528 3.414 1.376.649-.24 1.35-.376 2.086-.376 3.171 0 5.753 2.443 5.921 5.516 2.034.359 3.579 2.105 3.579 4.206zm-18-5.722c0 .86.37 1.628.955 2.172.485-.316 1.029-.551 1.624-.656.088-1.61.843-3.042 1.994-4.046-.46-.288-.991-.47-1.573-.47-1.654 0-3 1.346-3 3zm16 5.722c0-2.076-1.979-2.618-3.489-2.512.218-1.439-.24-5.21-4.011-5.21-3.875 0-4.062 3.854-4.011 5.209-1.385-.084-3.489.395-3.489 2.513 0 1.256 1.056 2.278 2.354 2.278h10.291c1.299 0 2.355-1.022 2.355-2.278z"/></svg>
+                                <div class="card-weather-temp">28&#176; - 30&#176;</div>
+                            </li>
+                            <li class="card-weather-li">
+                                <h4>SUN</h4>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="#999" width="36" height="36" viewBox="0 0 24 24"><path d="M2.396 12h-2.396v-2h2.396v2zm7.604-6.458v-3.542h-2v3.542h2zm-4.793.876l-2.156-2.156-1.414 1.414 2.156 2.156 1.414-1.414zm9.461-2.396l-2.115 2.114 1.414 1.414 2.115-2.114-1.414-1.414zm-11.7 10.907l-2.198 1.919 1.303 1.517 2.198-1.919-1.303-1.517zm21.032 2.793c0 2.362-1.95 4.278-4.354 4.278h-10.292c-2.404 0-4.354-1.916-4.354-4.278 0-.77.211-1.49.574-2.113-.964-.907-1.574-2.18-1.574-3.609 0-2.762 2.238-5 5-5 1.329 0 2.523.528 3.414 1.376.649-.24 1.35-.376 2.086-.376 3.171 0 5.753 2.443 5.921 5.516 2.034.359 3.579 2.105 3.579 4.206zm-18-5.722c0 .86.37 1.628.955 2.172.485-.316 1.029-.551 1.624-.656.088-1.61.843-3.042 1.994-4.046-.46-.288-.991-.47-1.573-.47-1.654 0-3 1.346-3 3zm16 5.722c0-2.076-1.979-2.618-3.489-2.512.218-1.439-.24-5.21-4.011-5.21-3.875 0-4.062 3.854-4.011 5.209-1.385-.084-3.489.395-3.489 2.513 0 1.256 1.056 2.278 2.354 2.278h10.291c1.299 0 2.355-1.022 2.355-2.278z"/></svg>
+                                <div class="card-weather-temp">24&#176; - 28&#176;</div>
+                            </li>
+                            <li class="card-weather-li">
+                                <h4>MON</h4>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="#999" width="36" height="36" viewBox="0 0 24 24"><path d="M2.396 12h-2.396v-2h2.396v2zm7.604-6.458v-3.542h-2v3.542h2zm-4.793.876l-2.156-2.156-1.414 1.414 2.156 2.156 1.414-1.414zm9.461-2.396l-2.115 2.114 1.414 1.414 2.115-2.114-1.414-1.414zm-11.7 10.907l-2.198 1.919 1.303 1.517 2.198-1.919-1.303-1.517zm21.032 2.793c0 2.362-1.95 4.278-4.354 4.278h-10.292c-2.404 0-4.354-1.916-4.354-4.278 0-.77.211-1.49.574-2.113-.964-.907-1.574-2.18-1.574-3.609 0-2.762 2.238-5 5-5 1.329 0 2.523.528 3.414 1.376.649-.24 1.35-.376 2.086-.376 3.171 0 5.753 2.443 5.921 5.516 2.034.359 3.579 2.105 3.579 4.206zm-18-5.722c0 .86.37 1.628.955 2.172.485-.316 1.029-.551 1.624-.656.088-1.61.843-3.042 1.994-4.046-.46-.288-.991-.47-1.573-.47-1.654 0-3 1.346-3 3zm16 5.722c0-2.076-1.979-2.618-3.489-2.512.218-1.439-.24-5.21-4.011-5.21-3.875 0-4.062 3.854-4.011 5.209-1.385-.084-3.489.395-3.489 2.513 0 1.256 1.056 2.278 2.354 2.278h10.291c1.299 0 2.355-1.022 2.355-2.278z"/></svg>
+                                <div class="card-weather-temp">29&#176; - 32&#176;</div>
+                            </li>
+                            <li class="card-weather-li">
+                                <h4>TUES</h4>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="#999" width="36" height="36" viewBox="0 0 24 24"><path d="M2.396 12h-2.396v-2h2.396v2zm7.604-6.458v-3.542h-2v3.542h2zm-4.793.876l-2.156-2.156-1.414 1.414 2.156 2.156 1.414-1.414zm9.461-2.396l-2.115 2.114 1.414 1.414 2.115-2.114-1.414-1.414zm-11.7 10.907l-2.198 1.919 1.303 1.517 2.198-1.919-1.303-1.517zm21.032 2.793c0 2.362-1.95 4.278-4.354 4.278h-10.292c-2.404 0-4.354-1.916-4.354-4.278 0-.77.211-1.49.574-2.113-.964-.907-1.574-2.18-1.574-3.609 0-2.762 2.238-5 5-5 1.329 0 2.523.528 3.414 1.376.649-.24 1.35-.376 2.086-.376 3.171 0 5.753 2.443 5.921 5.516 2.034.359 3.579 2.105 3.579 4.206zm-18-5.722c0 .86.37 1.628.955 2.172.485-.316 1.029-.551 1.624-.656.088-1.61.843-3.042 1.994-4.046-.46-.288-.991-.47-1.573-.47-1.654 0-3 1.346-3 3zm16 5.722c0-2.076-1.979-2.618-3.489-2.512.218-1.439-.24-5.21-4.011-5.21-3.875 0-4.062 3.854-4.011 5.209-1.385-.084-3.489.395-3.489 2.513 0 1.256 1.056 2.278 2.354 2.278h10.291c1.299 0 2.355-1.022 2.355-2.278z"/></svg>
+                                <div class="card-weather-temp">28&#176; - 30&#176;</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- dining -->
+                <div class="card card-dining shadow">
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+    </div>
+
+    <script type="text/javascript">
+
+        var requestCriteria = {};
+
+        var destination;
+
+        function displayDeals(dest){
+            document.getElementsByClassName('offering')[0].style.display = "block";
+        }
+
+        function _setDest(img,vid,dest){
+            document.getElementById('img-bg').src = img;
+            setTimeout(function(){
+                document.getElementById('img-bg').className = 'out';
+                document.getElementById('bg').src = vid;
+                displayDeals(dest);
+            },2000);
+            reset();
+        }
+
+        var dates = [
+                '1st','2nd','3rd','4th','5th','6th','7th','8th','9th'
+        ];
+        var months = [
+            {'val': 'january'},{'val': 'febuary'},{'val': 'march'},
+            {'val': 'april'},{'val': 'may'},{'val': 'june'},{'val': 'july'},
+            {'val': 'august'},{'val': 'september'},{'val': 'october'},{'val': 'november'},{'val': 'december'}
+        ];
+        var period = [
+            {'val':'next week'},{'val':'next month'},{'val':'tomorrow'},{'val':'monday'},{'val':'tuesday'}
+        ];
+        var city = [
+            {'val':'singapore'},{'val':'sydney'},{'val':'wellington'},{'val':'fiji'},{'val':'christchurch'}
+        ];
+        var actions = [
+            {'val':'flights'},{'val':'hotel'},{'val':'car'},{'val':'shuttle'},{'val':'activites'},{'val':'cheap'},
+        ];
+        var pricepoint = [
+            {'val':'cheap'},
+        ];
+        var travelclasses = [
+            {'val':'economy'},{'val':'business'},{'val':'first class'}
+        ];
+
+        function doesContain(arr,str){
+            var res = '';
+            for(var i=0;i<arr.length;i++){
+                if(str.indexOf(arr[i].val) != -1){
+                    res = arr[i].val;
+                }
+            }
+            return res;
+        }
+
+        function setAvaSpeech(str){
+            document.getElementById('ava-speech').innerText = str;
+            speak(str);
+        }
+
+        var speechHandled = false;
+        var avaStateEnum = {
+            READY : 'ready',
+            COURTNEY_DEMO : 'courtney_demo',
+            CHOOSING_FLIGHT : 'choosing_flight',
+            FLIGHT_CHOSEN : 'flight_chosen',
+            CHOOSING_PAYMENT : 'choosing_payment'
+
+        };
+        var avaState = avaStateEnum.READY;
+
+        function handleSpeech(speech){
+            speechHandled = false;
+            // reset timeouts
+            requestCriteria = {};
+            speech = speech.toLowerCase();
+            // check for city
+            requestCriteria.city = doesContain(city,speech);
+            requestCriteria.action = doesContain(actions,speech);
+            requestCriteria.month = doesContain(months,speech);
+            requestCriteria.period = doesContain(period,speech);
+            requestCriteria.date = doesContain(dates,speech);
+            requestCriteria.pricepoint = doesContain(pricepoint,speech);
+            requestCriteria.travelclass = doesContain(travelclasses,speech);
+
+            console.log(requestCriteria);
+
+            if(speech.indexOf('singapore') != -1) {
+                avaState = avaStateEnum.READY;
+                _setDest('destimages/Aerial_View_of_Singapore.jpg',
+                        'https://www.youtube.com/embed/WYFe2-hqA2Q?autoplay=1&controls=0&showinfo=0&autohide=1',
+                        {'name':"Singapore"});
+                getDeals('singapore');
+            }
+
+            else if(speech.indexOf('ava') != -1 || speech.indexOf('eva') != -1){
+                avaState = avaStateEnum.READY;
+                setAvaSpeech('Hi, how can i help?');
+                resetTimeouts();
+            }
+            else if(speech.indexOf('yes','please','this') != -1){
+                toggleAvaChoice();
+                if(avaState === avaStateEnum.FLIGHT_CHOSEN){
+                    avaState = avaStateEnum.CHOOSING_PAYMENT;
+                    destination = 'sydney';
+                    setAvaSpeech("Please confirm the CVV, or type it in below");
+                }else{
+                    setAvaSpeech("Ok. There are a couple of Friday evening flight options, I'm looking up the prices now");
+                    showSydneyFlightOptionsTimeout = setTimeout(showSydneyFlightOptions,7000);
+                }
+
+            }
+
+            else if(speech.indexOf('nz0711','nz 0711','aussie super 26') != -1){
+                avaState = avaStateEnum.FLIGHT_CHOSEN;
+                toggleAvaChoice();
+                setAvaSpeech("Ok. I'm booking Miss Courtney Bramwell one seat + bag ticket on NZ0711 on Friday 8 Jul. Would you like to pay with your stored ANZ Platinum Airpoints credit card?");
+                displayDeals(null);
+            }
+
+            else if(speech.indexOf('nz0706','nz 0706') != -1){
+                avaState = avaStateEnum.FLIGHT_CHOSEN;
+                toggleAvaChoice();
+                setAvaSpeech("Ok. I'm booking Miss Courtney Bramwell one seat + bag ticket on NZ0706 on Friday 8 July. Would you like to pay with your stored ANZ Platinum Airpoints credit card?");
+                displayDeals(null);
+            }
+
+            else if(speech.indexOf('perfect') != -1){
+                avaState = avaStateEnum.CHOOSING_PAYMENT;
+                setAvaSpeech("Please confirm the CVV, or type it in below");
+            }
+
+            else if(speech.indexOf('636') != -1){
+                processCVV();
+            }
+
+            else{
+                setAvaSpeech("i dont understand, please try again");
+            }
+        }
+
+        function getDeals(dest){
+            destination = dest;
+        }
+
+        function processCVV(){
+            setAvaSpeech("processing now, please hold.");
+            avaCVVTimeout = setTimeout(function(){
+                setAvaSpeech("Great your booked, please check your gmail account for your PNR");
+                setFlightBookState();
+            },7000);
+            //                callAjax('http://isis-ws-086.isis.airnz.co.nz:3703/vbook/actions/purchaseticketsexpress?submitExpress',function(e){
+//                    console.log('got result');
+//                });
+        }
+
+        function showSydneyFlightOptions(){
+            setPreferences('flights');
+            // set state
+            avaState = avaStateEnum.CHOOSING_FLIGHT;
+            setAvaSpeech("NZ0711 departing at 1840 will cost $596 return, or NZ0706 departing at 2040 will cost $496 return");
+        }
+
+        var recognizing = false;
+        var recognition = new webkitSpeechRecognition();
+        var carryOnSpeech = "";
+        recognition.continuous = true;
+        recognition.interimResults = true;
+        recognition.onresult = function(event) {
+            var result = event.results[0][0].transcript;
+            document.getElementById('q').value =  result;
+            if(recognizing){
+                //console.log(result);
+                handleSpeech(result);
+            }
+        };
+
+        recognition.onend = function(event) {
+            console.log('recognition end');
+        };
+
+        recognition.lang = "en-NZ";
+
+
+        function listen(){
+            recognizing = true;
+            recognition.start();
+        }
+
+        function reset(){
+            document.getElementById('q').value = "";
+            listen();
+        }
+
+        function stopListening(){
+            recognizing = false;
+            recognition.stop();
+        }
+
+        var voices;
+        var msg;
+
+        function speak(text) {
+            if(msg){
+                window.speechSynthesis.cancel();
+            }
+            speechHandled = true;
+            stopListening();
+            // Create a new instance of SpeechSynthesisUtterance.
+            msg = new SpeechSynthesisUtterance();
+            voices = speechSynthesis.getVoices();
+            msg.voice = voices[28]; //20=Fiona, 28=Karen(EN-AU)
+            msg.lang = 'en-AU';
+            msg.cancelable = true;
+
+            // Set the text.
+            msg.text = text;
+
+            // Set the attributes.
+            msg.volume = 1;
+            msg.rate = 1;
+            //msg.pitch = 2;
+
+            msg.onend = function(e) {
+                console.log('Finished in ' + event.elapsedTime + ' seconds.');
+                reset();
+            };
+
+            // Chrome loads voices asynchronously.
+            window.speechSynthesis.onvoiceschanged = function(e) {
+                console.log(e);
+            };
+
+            // Queue this utterance.
+            window.speechSynthesis.speak(msg);
+        }
+
+        function welcome(){
+            toggleAvaChoice();
+            setAvaSpeech("Hi Courtney, I have learned you are interested in joining Nicola in Sydney next weekend. I can see you have flown to Australia with a seat + bag ticket before, would you like to know the price for this type of ticket?");
+            setTimeout(function(){
+                listen();
+            },12000)
+        }
+
+
+        function checkForId(){
+            if(window.location.search.indexOf('12345') !== -1){
+                welcome();
+            }
+        }
+
+        checkForId();
+
+        // vanilla ajax
+        function callAjax(url, callback){
+            var xmlhttp;
+            xmlhttp = new XMLHttpRequest();
+
+            xmlhttp.onreadystatechange = function(){
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
+                    callback(xmlhttp.responseText);
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
+
+        function handleNoDestination(){
+            if(destination !== 'undefined'){setAvaSpeech('where would you like to go?')}
+        }
+
+        function setPreferences(item){
+            var oelem = null;
+            var celem = null;
+            handleNoDestination();
+            switch(item){
+                case 'flights':
+                        oelem = document.getElementById('ava-options-flight');
+
+                    break;
+                case 'hotels':
+                        oelem = document.getElementById('ava-options-hotels');
+                        celem = document.getElementsByClassName('card-hotels')[0];
+
+                    break;
+                case 'cars':
+                    oelem = document.getElementById('ava-options-cars');
+                    celem = document.getElementsByClassName('card-cars')[0];
+
+                    break;
+                case 'packages':
+                        oelem = document.getElementById('ava-options-packages');
+                        celem = document.getElementsByClassName('card-packages')[0];
+
+                    break;
+                case 'activities':
+                        oelem = document.getElementById('ava-options-activities');
+                        celem = document.getElementsByClassName('card-activites')[0];
+
+                    break;
+                case 'dinning':
+                        oelem = document.getElementById('ava-options-dinning');
+                        celem = document.getElementsByClassName('card-dining')[0];
+
+                    break;
+                case 'weather':
+                        oelem = document.getElementById('ava-options-weather');
+                        celem = document.getElementsByClassName('card-weather')[0];
+
+                        setWeatherOptions();
+                    break;
+            }
+            setOptionsStatus(oelem);
+            setCardStatus(celem);
+        }
+
+        function setOptionsStatus(elem){
+            if(elem.className !== 'ava-options-active'){
+                elem.className = 'ava-options-active';
+            }else{
+                elem.className = "";
+            }
+        }
+
+        function setCardStatus(elem){
+            if(elem){
+                if(elem.className.indexOf('card-active') !== -1){
+                    elem.className = elem.className.split('card-active')[0];
+
+                }else{
+                    elem.className += ' card-active';
+                }
+            }
+        }
+
+        /**
+         * Sets displayed flight deals
+         **/
+        function setFlightsOptions(options){
+            var hiddenElem;
+            if(avaState === avaStateEnum.CHOOSING_FLIGHT){
+                if(options === 'NZ0711'){
+                    hiddenElem = document.getElementById('flightOpt2');
+
+                } else if(options === 'NZ0706') {
+                    hiddenElem = document.getElementById('flightOpt1');
+                }
+                hiddenElem.style.display = 'none';
+                handleSpeech(options.toLowerCase());
+            }
+        }
+
+        function setHotelOptions(){
+
+        }
+
+        function setPackageOptions(){
+
+        }
+
+        function setActivityOptions(){
+
+        }
+
+        function setDiningOption(){
+
+        }
+
+        function setWeatherOptions(){
+            if(destination !== 'undefined'){
+                callAjax('http://api.openweathermap.org/data/2.5/forecast?q='+destination+',us&mode=json&appid=96c6c819dc7c7501724f6b8f4a41ac1b',function(res){
+                    console.log(res);
+                });
+            }
+            // show widget
+
+            // set city background
+            var elem = document.getElementsByClassName('card-weather-img')[0];
+            setImageSource(elem,ImageSourceEnum.SYDNEY_WEATHER);
+        }
+
+        /**
+         * Shows or hides offering container and heading
+         */
+        function toggleOfferingView(){
+            var offeringDiv = document.getElementsByClassName('ava-offerings')[0];
+            if( offeringDiv.className.indexOf('ava-offerings-hidden') !== -1){
+                offeringDiv.className = 'ava-offerings';
+            }else{
+                offeringDiv.className = 'ava-offerings ava-offerings-hidden';
+            }
+        }
+
+        function setAvaChoice(val){
+
+        }
+
+        function toggleAvaChoice() {
+            var elem = document.getElementById('ava-choices');
+            if (elem.style.display !== 'block') {
+                    elem.style.display = 'block';
+            } else {
+                elem.style.display = 'none';
+            }
+        }
+
+        function setFlightBookState(){
+            var n = 1;
+            var avaPmts = document.getElementsByClassName('ava-card-flights-payment');
+            var avabk = document.getElementsByClassName('ava-card-flights-booked');
+
+            while(n < document.getElementsByClassName('ava-card-flights-payment').length){
+                avaPmts[n-1].style.display = 'none';
+                avabk[n-1].style.display = 'block';
+            }
+
+        }
+
+        var ImageSourceEnum = {
+            SYDNEY_WEATHER : 'sydney_weather',
+            AVA_ICON : 'ava_icon'
+        };
+
+        function setImageSource(elem,val){
+            var imgsrc;
+            switch(val){
+                case ImageSourceEnum.SYDNEY_WEATHER :
+                   imgsrc = 'destimages/Darling-Harbour-areadarling harbour accommodationaccommodation sydney darling harbour-night-sky.jpg';
+                    document.getElementsByClassName('card-weather-img')[0].style.backgroundImage = 'url('+imgsrc+')';
+                break;
+            };
+        }
+    </script>
+
+</body>
+</html>

@@ -37,20 +37,33 @@
 
     <section layout="row" class="bg-light-grey" flex>
         <!-- left side -->
-        <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
-            <md-toolbar class="bg-white">
-                <md-button ng-click="close()">
+        <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
+            <md-content layout-padding ng-controller="LeftCtrl">
+                <md-button ng-click="close()" class="md-primary">
                     <i class="material-icons font-colour-dark-grey">chevron_left</i>
                 </md-button>
-            </md-toolbar>
-            <md-content layout-padding ng-controller="LeftCtrl">
-                <md-button ng-click="close()" class="md-primary" hide-gt-md>
-                    Close Sidenav Left
-                </md-button>
-                <p hide-md show-gt-md>
-                    This sidenav is locked open on your device. To go back to the default behavior,
-                    narrow your display.
-                </p>
+                <ul>
+                    <li layout="row">
+                        <i class="material-icons font-colour-dark-grey"></i>
+                        <span>Responsive Design</span>
+                    </li>
+                    <li layout="row">
+                        <i class="material-icons font-colour-dark-grey"></i>
+                        <span>App Development</span>
+                    </li>
+                    <li layout="row">
+                        <i class="material-icons font-colour-dark-grey"></i>
+                        <span>SEO</span>
+                    </li>
+                    <li layout="row">
+                        <i class="material-icons font-colour-dark-grey"></i>
+                        <span>Banner Ads</span>
+                    </li>
+                    <li layout="row">
+                        <i class="material-icons font-colour-dark-grey"></i>
+                        <span>Banner Ads</span>
+                    </li>
+                </ul>
             </md-content>
         </md-sidenav>
 
@@ -60,9 +73,9 @@
                 <!-- hero -->
                 <div layout="row" layout-fill layout-align="top center" class="hero-banner bg-light-white">
                     <div flex="50" class="hero-segment">
-                        <img src="img/0115_office2_630x420.jpg">
+                        <img style="width: 100%" src="img/0115_office2_630x420.jpg">
                     </div>
-                    <div flex="50"class="hero-segment">
+                    <div flex="50" class="hero-segment">
                         <div layout="column" layout-align="center center" class="hero-caption">
                             <span class="md-headline hero-caption-heading">More than just a web page. </span>
                             <span class="md-subhead hero-caption-subheading">We create solutions that work on all devices. Responsive web design, mobile app development is not only a must but very achieveable in recent times. </span>
@@ -75,14 +88,41 @@
 
                 </div>
                 <!-- responsive development -->
-                <div layout="row" layout-fill layout-align="center center" class="hero-banner bg-orange">
-                    <div layout="column" layout-padding flex="50">
-                        <span class="md-headline hero-caption-heading">Responsive Web Design. </span>
-                        <span class="md-subhead hero-caption-subheading">Design your web content to display on all devices. </span>
+                <div layout="column" layout-fill layout-align="center center" class="hero-banner">
+
+                    <!-- caption -->
+                    <div>
+                        Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
                     </div>
-                    <div flex="50">
-                        <img  src="img/responsive_web_design.png" style="width:90%">
+                    <!-- tiles -->
+                    <div layout-padding layout-align="center center">
+
+                        <!-- responsive -->
+                        <div style="max-width: 100px">
+                            <i class="material-icons" style="font-size: 96px">devices</i>
+                            <span class="md-headline hero-caption-heading">Responsive Web Design. </span>
+                            <span class="md-subhead hero-caption-subheading">Design your web content to display on all devices. </span>
+                        </div>
+
+                        <!-- app -->
+                        <div>
+                            <i class="material-icons" style="font-size: 96px">developer_mode</i>
+                            <div layout="column" layout-padding flex="50">
+                                <span class="md-headline hero-caption-heading">Responsive Web Design. </span>
+                                <span class="md-subhead hero-caption-subheading">Design your web content to display on all devices. </span>
+                            </div>
+                        </div>
+
+                        <!-- promo -->
+                        <div></div>
+
+                        <!-- seo -->
+                        <div></div>
+
+                        <!-- aws -->
+                        <div></div>
                     </div>
+
                 </div>
 
                 <!-- quote -->
@@ -90,29 +130,57 @@
                     <span class="hero-quote">
                         <i class="material-icons" style="transform: rotateZ(180deg);color:#999">format_quote</i> more Google searches take place on mobile devices than on computers in 10 countries including the US and Japan. <i class="material-icons" style="color:#999">format_quote</i>
                     </span>
-                    <span style="font-size: 14px;text-align: center">Google.</span>
+                    <span style="font-size: 14px;text-align: center">Google - 2015.</span>
                 </div>
 
                 <!-- app development -->
-                <div layout="row" layout-fill layout-align="top center" class="hero-banner bg-green">
-                    <div flex="50"  layout-padding>
+                <div layout="row" layout-fill layout-align="center center" class="hero-banner bg-green">
+                    <div flex="50" layout-padding>
                         <img class="hero-app-img" src="img/intro-product.png">
                     </div>
-                    <div flex="50" layout="column">
+                    <div flex="50" layout="column" >
                         <span class="md-headline hero-caption-heading">One code base for native app and web</span>
                         <span class="md-subhead hero-caption-subheading">Save's money and speeds up delivery </span>
                     </div>
                 </div>
+
+                <!-- seo development -->
+                <div layout="row" layout-padding layout-align="center center" class="hero-banner">
+                    <div flex="50" layout="column">
+                        <span class="md-headline hero-caption-heading">Understand and increase your audience</span>
+                        <span class="md-subhead hero-caption-subheading">Increase SEO by simple optimisations</span>
+                    </div>
+                    <div flex="50" layout-padding layout="column">
+                        <img class="hero-app-img" src="img/enterprise-seo.png">
+                    </div>
+                </div>
+                
                 <!-- promo development -->
+                <div layout="row" layout-fill layout-align="top center" class="hero-banner bg-blue">
+                    <div flex="50" style="background-color: #000 !important">
+                        <div>
+                            <div>
+                                <img src="img/garage_door_white.png">
+                            </div>
+                        </div>
+                    </div>
+                    <div flex="50">
+
+                    </div>
+                </div>
+
+                <!-- aws development -->
                 <div layout="row" layout-fill layout-align="top center" class="hero-banner">
                     <div flex="50">
 
                     </div>
                     <div flex="50">
-
+                        <span class="md-headline hero-caption-heading">Reduce the cost of delivery</span>
+                        <span class="md-subhead hero-caption-subheading">Using HaaS service's like Amazon AWS can drastically reduce your maintenace costs. </span>
                     </div>
                 </div>
-                <!-- seo development -->
+
+                <!-- concepts development  - carosel -->
                 <div layout="row" layout-fill layout-align="top center" class="hero-banner">
                     <div flex="50">
 

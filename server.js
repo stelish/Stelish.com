@@ -2,26 +2,40 @@
  * Created by stevekelly on 18/06/15.
  */
 var express = require('express');
-var app = express();
+var bodyParser = require('body-parser');
+var http = require('http');
+var https = require('https');
+
+var app = express(); // the main app
 var path = require('path');
+var fs         = require("fs");
 
-app.all('/*',function(req, res, next){
-    res.header("Access-Control-Allow-Origin","*");
-    res.header("Access-Control-Allow-Headers","X-Requested-With");
-    next();
-});
+// body parser
+app.use(bodyParser.json()); // support json encoded bodies
+app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
-app.use(express.static('views'));
 
-app.get('/', function (req, res) {
-    res.sendFile(path.join(__dirname + '/views/index.html'));
-});
+/**
+ * Get's Main Admin Dashboard Page
+ * Used to enable short request to /admin
+ */
+app.route('/banners')
+    .get(function(req, res) {
+        console.log('Accessing the banner section ...');
+        console.log(app.path());
+        res.type('.html');
+        res.sendFile(path.join(__dirname + '/views/banners/req.params[0]'));
+    });
 
-var server = app.listen(3001, function () {
 
-    var host = server.address().address;
-    var port = server.address().port;
+/**
+ * Serves everything else
+ */
+app.route('/*')
+    .get(function(req, res) {
+        res.sendFile(path.join(__dirname + '/views/'+req.params[0]));
+    });
 
-    console.log('Stelish listening at http://%s:%s', host, port);
-
-});
+// Bind to port
+var SERVER_PORT = 3001;
+http.createServer(app).listen(SERVER_PORT);
