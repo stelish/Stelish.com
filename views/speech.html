@@ -3,300 +3,521 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,400italic' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Covered+By+Your+Grace' rel='stylesheet' type='text/css'>
-    <style>
-        body{
-            background: #eee;
-            font-family: "Roboto Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
-            margin:0;
-        }
 
-        #q {
-            height: 20px;
-            width: 100%;
-            border: solid 1px #666;
-            border-radius: 6px;
-            padding: 5px 10px;
-            font-size: 24px;
-            font-weight: 100;
-            line-height: 1.2;
-            color: #fff;
-            background-color: #555;
-            text-align: center;
-        }
-        #img-bg{
-            width: 100%;
-            height: 100%;
-            -webkit-transition: opacity 3s ease-in-out;
-            -moz-transition: opacity 3s ease-in-out;
-            -ms-transition: opacity 3s ease-in-out;
-            -o-transition: opacity 3s ease-in-out;
-            opacity: 1;
-            border: none;
-            margin-left: -10px;
-            margin-right: -10px;
-            margin-top: -10px;
-            max-height: 350px;
-        }
-        .out {
-            opacity: 0 !important;
-        }
-
-        .header{
-            height: 50px;
-            width: 100%;
-            padding: 15px 5px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-        }
-
-        .content{
-            position: relative;
-
-        }
-
-        .offering{
-            margin-top: 100px;
-            text-align: center;
-        }
-        .offering ul{
-            list-style: none;
-        }
-        .card{
-            background: white;
-            width: 40%;
-            min-height: 150px;
-            padding: 5px;
-            border-radius: 4px;
-            margin: 0 auto;
-            transition: all 0.5s ease;
-        }
-        .shadow {
-            -webkit-box-shadow: 0 1px 1px 1px #ccc;
-            -moz-box-shadow:    0 1px 1px 1px #ccc;
-            box-shadow:         0 1px 1px 1px #ccc;
-        }
-        .confirmBtn{
-            height: 20px;
-            width: 40%;
-            color: #1976D2;
-            padding: 10px 10px 3px;
-            text-align: center;
-            font-size: 11px;
-            margin: 5px;
-            border: solid 1px #584258;
-        }
-
-        .denyBtn{
-            height: 20px;
-            width: 20%;
-            background-color: #ff0000;
-            color: #fff;
-            padding: 10px 10px 3px;
-            text-align: center;
-            font-size: 11px;
-            margin: 5px;
-        }
-        .profile-welcome{
-            position: absolute;
-            top: 15px;
-            right: 30px;
-            color: white;
-        }
-
-        .purple{
-            background-color: #9C27B0 !important;
-        }
-
-        .blue{
-            background: #1976D2;
-        }
-
-        .magenta{
-            background: rgba(216,27,96,0.9);
-            font-size: 26px;
-        }
-
-        .orange{
-            background: rgba(255,87,34,0.9);
-            font-size: 26px;
-        }
-
-        .brown{
-            background: rgba(121,85,72,0.9);
-            font-size: 26px;
-        }
-
-    </style>
 </head>
 <body>
+
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,400italic' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Covered+By+Your+Grace' rel='stylesheet' type='text/css'>
+<style>
+    body{
+        background: #eee;
+        font-family: "Roboto Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin:0;
+    }
+
+    #q {
+        height: 20px;
+        width: 100%;
+        border: solid 1px #666;
+        border-radius: 6px;
+        padding: 5px 10px;
+        font-size: 24px;
+        font-weight: 100;
+        line-height: 1.2;
+        color: #fff;
+        background-color: #555;
+        text-align: center;
+    }
+    #img-bg{
+        width: 100%;
+        height: 100%;
+        -webkit-transition: opacity 3s ease-in-out;
+        -moz-transition: opacity 3s ease-in-out;
+        -ms-transition: opacity 3s ease-in-out;
+        -o-transition: opacity 3s ease-in-out;
+        opacity: 1;
+        border: none;
+        margin-left: -10px;
+        margin-right: -10px;
+        margin-top: -10px;
+        max-height: 350px;
+    }
+    .out {
+        opacity: 0 !important;
+    }
+
+    .header{
+        height: 50px;
+        width: 100%;
+        padding: 15px 5px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+    }
+
+    .content{
+        position: relative;
+
+    }
+
+    .offering{
+        margin-top: 100px;
+        text-align: center;
+    }
+    .offering ul{
+        list-style: none;
+    }
+    .card{
+        background: white;
+        width: 40%;
+        min-height: 150px;
+        padding: 5px;
+        border-radius: 4px;
+        margin: 0 auto;
+        transition: all 0.5s ease;
+    }
+    .shadow {
+        -webkit-box-shadow: 0 1px 1px 1px #ccc;
+        -moz-box-shadow:    0 1px 1px 1px #ccc;
+        box-shadow:         0 1px 1px 1px #ccc;
+    }
+    .confirmBtn{
+        height: 20px;
+        width: 40%;
+        color: #1976D2;
+        padding: 10px 10px 3px;
+        text-align: center;
+        font-size: 11px;
+        margin: 5px;
+        border: solid 1px #584258;
+    }
+
+    .denyBtn{
+        height: 20px;
+        width: 20%;
+        background-color: #ff0000;
+        color: #fff;
+        padding: 10px 10px 3px;
+        text-align: center;
+        font-size: 11px;
+        margin: 5px;
+    }
+    .profile-welcome{
+        position: absolute;
+        top: 15px;
+        right: 30px;
+        color: white;
+    }
+
+    .purple{
+        background-color: #9C27B0 !important;
+    }
+
+    .blue{
+        background: #1976D2;
+    }
+
+    .magenta{
+        background: rgba(216,27,96,0.9);
+        font-size: 26px;
+    }
+
+    .orange{
+        background: rgba(255,87,34,0.9);
+        font-size: 26px;
+    }
+
+    .brown{
+        background: rgba(121,85,72,0.9);
+        font-size: 26px;
+    }
+
+    #ava-widget{
+        background: #eee;
+        overflow: hidden;
+        min-height: 400px;
+        width: 100%;
+    }
+    .ava-toolbar{
+        width: 100%;
+        height: 110px;
+        padding: 15px;
+        background-color: #666;
+        color: #ffffff;
+        -webkit-box-shadow: 0 -5px 20px 10px #000;
+        -moz-box-shadow:    0 -5px 20px 10px #000;
+        box-shadow:         0 -5px 20px 10px #000;
+        position: relative;
+        display: inline-flex;
+        z-index: 20000;
+    }
+    .row {
+        display:inline-flex;
+    }
+
+    .ava-container button{
+        background: #1976D2;
+        border: none;
+        color: #fff;
+        padding: 10px 20px;
+        margin-left: 38px;
+    }
+
+    .ava-wrapper{
+        border-radius: 50%;
+        min-width: 100px;
+        max-width: 100px;
+        height: 100px;
+        overflow: hidden;
+        border: solid 3px black;
+        float:left;
+        background: #fff;
+    }
+
+    .ava-wrapper blockquote{
+        color: #fff;
+    }
+    .ava{
+        width: 100%;
+        height: 100%;
+    }
+    .ava-social{
+        position: absolute;
+        top:10px;
+        right:40px;
+        display: inline-flex;
+    }
+    .ava-social > div{
+        margin:5px;
+    }
+
+    #ava-speech{
+        text-align: left;
+        font-weight: 100;
+        font-size: 20px;
+        font-style: italic;
+        margin:0;
+    }
+    #ava-choices{
+        width: 100%;
+        position: relative;
+        display: none;
+        transition: all 0.9s ease-out;
+    }
+    .ava-input{
+        width: 100%;
+    }
+    .ava-buttons{
+        display: inline-flex;
+        position: absolute;
+        right: 0;
+    }
+    .ava-no{
+        width: 40px;
+        height: 20px;
+        text-align: center;
+        padding: 5px 10px;
+        border: solid 1px white;
+        border-radius: 6px;
+        color: white;
+        margin-left: 5px;
+    }
+    .ava-yes{
+        width: 100px;
+        height: 20px;
+        text-align: center;
+        padding: 5px 10px;
+        /* border: solid 1px white; */
+        border-radius: 6px;
+        color: white;
+        margin-right: 5px;
+    }
+    .ava-label{
+        color: #fff;
+        margin: 0 5px;
+    }
+    .interactions-container{
+        width: 100%;
+        display: inline-flex;
+        border-top: solid 1px #aaa;
+        padding-top: 5px;
+        margin-top: 5px;
+    }
+    .ava-offerings{
+        width: 100%;
+        margin-top: 10px;
+        transition: all 0.9s ease-out;
+        height: 200px;
+        z-index: -99;
+        padding-bottom: 5px;
+        margin-left: 0;
+    }
+    .ava-offerings-inner{
+        display: inline-flex;
+        width: 100%;
+        transition: all 0.9s ease-out;
+        margin: 0 auto;
+    }
+    .ava-offerings-hidden{
+        display: block;
+        margin-top: -300px;
+        transition: all 0.9s ease-out;
+
+    }
+
+    .ava-speech-inner{
+        display: inline-flex;
+        margin-bottom: 5px;
+        min-height: 70px;
+        max-height: 70px;
+    }
+    .ava-options-header{
+        background-color: white;
+        width: 100%;
+        height: 20px;
+        padding: 5px 15px;
+        z-index: 19999;
+    }
+    .ava-options-header-ul{
+        list-style: none;
+        margin: 0 auto;
+        display: inline-flex;
+    }
+    .ava-options-header-ul > li{
+        font-weight: normal;
+        color: #999;
+        padding: 5px 35px;
+    }
+    .ava-options-active {
+        color: #333 !important;
+        font-weight: bold !important;
+    }
+
+    .ava-card-hotels{
+        width: 75%;
+        height: 100%;
+        overflow: hidden;
+        margin-right: 1px;
+    }
+    .ava-card-hotels > img{
+        width: auto;
+        height: 100%;
+    }
+    .ava-card-hotels-thumbnails{
+        width: 50%;
+    }
+    .ava-card-hotels-thumbnails > div{
+        overflow: hidden;
+        width: 100%;
+        height:50%
+    }
+    .ava-card-hotels-thumbnails > div > img{
+        width: 100%;
+        height: auto;
+    }
+    .card{
+        min-width: 400px;
+        max-width: 400px !important;
+        min-height: 190px;
+        position: relative;
+        margin: 0 5px;
+    }
+    .card-activites{
+        background-image: url("https://a.travel-assets.com/mediavault.le/media/4c2c09df5214d54805b617fd7b68cca40258d8ce.jpeg");
+        display: none;
+    }
+    .card-label{
+        font-family: 'Covered By Your Grace', cursive;
+        color: #fff;
+        padding: 5px 15px;
+        position: absolute;
+        bottom: 10px;
+        left: 0;
+    }
+
+    .card-flights{
+        font-size: 11px;
+    }
+
+    .card-hotels{
+        background-image: url("http://blogs-images.forbes.com/lauriewerner/files/2014/08/0901_FL-park-hyatt-sydney_1325x745.jpg");
+        display: none;
+    }
+
+    .card-cars{
+        background-image: url("http://www.tahoesbest.com/sites/default/files/billboard/car-rental-5-18-1_C.jpg?1337377785");
+        display: none;
+    }
+
+    .card-dining{
+        background-image: url("https://grabaseat.co.nz/resource/2bb223d9-a8b1-4f7e-8482-84b35923436a?width=1140&height=300");
+        display: none;
+    }
+
+    .card-hidden{
+        display: none;
+    }
+
+    .card-packages{
+        background-image: url("https://grabaseat.co.nz/resource/e1e537f0-261e-48f0-b102-0814f5f3c2a8?height=705&width=940");
+        display: none;
+    }
+
+    .card-weather{
+        display: none;
+    }
+
+    .card-active{
+        display: block !important;
+    }
+
+    .ava-card-flight-offering{
+        max-width: 400px;
+        min-width: 400px !important;
+        max-height: 300px;
+        position: relative;
+        padding: 5px 15px;
+    }
+    .ava-card-flight{
+        width: 50%;
+        padding: 5px;
+    }
+    .ava-card-flight-title{
+        font-size: 12px;
+    }
+    .ava-card-flight-direction{
+        font-size: 28px;
+        font-weight: 400;
+    }
+    .ava-card-flight-time{
+        font-size: 12px;
+        font-weight: 200;
+    }
+    .ava-card-flight-details{
+        display: inline-flex;
+        width: 100%;
+    }
+    .ava-card-flights-toggle{
+        color: white;
+        text-align: center;
+        height: 15px;
+        padding-top: 3px;
+        width: 100%;
+        margin: 5px 0;
+    }
+    .ava-card-flights-total,.ava-card-flights-price{
+        font-size: 24px;
+        font-weight: bold;
+    }
+    .ava-card-flights-underline{
+        width: 100%;
+        border-bottom: solid 1px #999;
+    }
+    .ava-card-flights-price-container{
+        width: 100%;
+        display: inline-flex;
+        margin-top: 5px;
+    }
+    .ava-card-flights-payment{
+        display: inline-flex;
+        margin-top: 5px;
+        width: 100%;
+    }
+    .ava-card-flights-payment > div{
+        font-size: 12px;
+        font-weight: 200;
+    }
+    .ava-card-flights-cc{
+        display: inline-flex;
+    }
+    .ava-card-flights-booked{
+        padding: 5px;
+        display: none;
+        font-size: 14px;
+        font-weight: bold;
+        color: #2196F3;
+        text-align: right;
+    }
+
+    .card-weather-img{
+        height:60%;
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+        background-position: 100% 40%;
+        background-image: url("https://static.stayz.com.au/property/image/03/11/63/img_31163_617ea23f4d1c52c4b6e24e1f8d75c754_max800x600.jpg");
+    }
+    .card-weather-bottom{
+        height:40%;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .card-weather-bottom{
+        border-top: solid 1px #ccc;
+    }
+    .card-weather-ul{
+        display: inline-flex;
+        list-style: none;
+        padding: 0;
+        width: 100%;
+        margin: 0;
+    }
+    .card-weather-li {
+        height: 100%;
+        width: 25%;
+        color: #999;
+    }
+    .card-weather-li > svg{
+        margin: 0 auto;
+        /* text-align: center; */
+        margin-left: 25px;
+    }
+    .card-weather-li > h4{
+        padding: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+        font-size: 12px;
+        /* text-align: center; */
+        margin-left: 32px;
+    }
+    .card-weather-temp{
+        text-align: center; margin-top: 0;font-size: 12px;
+    }
+    .card-weather-over{
+        position: absolute;
+        top:0;
+        left:0;
+        width: 100%;
+        height: 100%;
+        display: inline-flex;
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+    .card-weather-city{
+        width: 50%;
+        color: #fff;
+        font-size: 20px;
+        padding-left: 60px;
+        padding-top: 10px;
+    }
+    .card-weather-degrees{
+        font-size: 80px;
+        text-align: center;
+        width: 50%;
+        color: #fff;
+        padding-top: 10px;
+    }
+
+    .ava-hidden {
+        display: none!important;
+    }
+
+</style>
     <!-- widget -->
     <div id="ava-widget">
         <div class="ava-toolbar">
-            <style>
-                #ava-widget{
-                    background: #eee;
-                    overflow: hidden;
-                    max-width: 1500px;
-                    min-height: 400px;
-                }
-                .ava-toolbar{
-                    width: 100%;
-                    height: 110px;
-                    padding: 15px;
-                    background-color: #666;
-                    color: #ffffff;
-                    -webkit-box-shadow: 0 -5px 20px 10px #000;
-                    -moz-box-shadow:    0 -5px 20px 10px #000;
-                    box-shadow:         0 -5px 20px 10px #000;
-                    position: relative;
-                    display: inline-flex;
-                    z-index: 20000;
-                }
-                .row {
-                    display:inline-flex;
-                }
-
-                .ava-container button{
-                    background: #1976D2;
-                    border: none;
-                    color: #fff;
-                    padding: 10px 20px;
-                    margin-left: 38px;
-                }
-
-                .ava-wrapper{
-                    border-radius: 50%;
-                    min-width: 100px;
-                    max-width: 100px;
-                    height: 100px;
-                    overflow: hidden;
-                    border: solid 3px black;
-                    float:left;
-                    background: #fff;
-                }
-
-                .ava-wrapper blockquote{
-                    color: #fff;
-                }
-                .ava{
-                    width: 100%;
-                    height: 100%;
-                }
-                .ava-social{
-                    position: absolute;
-                    top:10px;
-                    right:40px;
-                    display: inline-flex;
-                }
-                .ava-social > div{
-                    margin:5px;
-                }
-
-                #ava-speech{
-                    text-align: left;
-                    font-weight: 100;
-                    font-size: 20px;
-                    font-style: italic;
-                    margin:0;
-                }
-                #ava-choices{
-                    width: 100%;
-                    position: relative;
-                    display: none;
-                    transition: all 0.9s ease-out;
-                }
-                .ava-input{
-                    width: 100%;
-                }
-                .ava-buttons{
-                    display: inline-flex;
-                    position: absolute;
-                    right: 0;
-                }
-                .ava-no{
-                    width: 40px;
-                    height: 20px;
-                    text-align: center;
-                    padding: 5px 10px;
-                    border: solid 1px white;
-                    border-radius: 6px;
-                    color: white;
-                    margin-left: 5px;
-                }
-                .ava-yes{
-                    width: 100px;
-                    height: 20px;
-                    text-align: center;
-                    padding: 5px 10px;
-                    /* border: solid 1px white; */
-                    border-radius: 6px;
-                    color: white;
-                    margin-right: 5px;
-                }
-                .ava-label{
-                    color: #fff;
-                    margin: 0 5px;
-                }
-                .interactions-container{
-                    width: 100%;
-                    display: inline-flex;
-                    border-top: solid 1px #aaa;
-                    padding-top: 5px;
-                    margin-top: 5px;
-                }
-                .ava-offerings{
-                    width: 100%;
-                    margin-top: 10px;
-                    overflow: scroll;
-                    transition: all 0.9s ease-out;
-                    height: 200px;
-                    z-index: -99;
-                    padding-bottom: 5px;
-                }
-                .ava-offerings-inner{
-                    display: inline-flex;
-                    width: 100%;
-                }
-                .ava-offerings-hidden{
-                    display: block;
-                    margin-top: -300px;
-                    transition: all 0.9s ease-out;
-
-                }
-
-                .ava-speech-inner{
-                    display: inline-flex;
-                    margin-bottom: 5px;
-                    min-height: 70px;
-                    max-height: 70px;
-                }
-                .ava-options-header{
-                    background-color: white;
-                    width: 100%;
-                    height: 20px;
-                    padding: 5px 15px;
-                    z-index: 19999;
-                }
-                .ava-options-header-ul{
-                    list-style: none;
-                    margin: 0 auto;
-                    display: inline-flex;
-                }
-                .ava-options-header-ul > li{
-                    font-weight: normal;
-                    color: #999;
-                    padding: 5px 35px;
-                }
-                .ava-options-active {
-                    color: #333 !important;
-                    font-weight: bold !important;
-                }
-            </style>
-
             <!-- ava -->
             <div class="ava-wrapper row">
                 <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
@@ -393,157 +614,6 @@
 
         <div class="ava-offerings ava-offerings-hidden">
             <div class="ava-offerings-inner">
-                <style>
-                    .ava-card-hotels{
-                        width: 75%;
-                        height: 100%;
-                        overflow: hidden;
-                        margin-right: 1px;
-                    }
-                    .ava-card-hotels > img{
-                        width: auto;
-                        height: 100%;
-                    }
-                    .ava-card-hotels-thumbnails{
-                        width: 50%;
-                    }
-                    .ava-card-hotels-thumbnails > div{
-                        overflow: hidden;
-                        width: 100%;
-                        height:50%
-                    }
-                    .ava-card-hotels-thumbnails > div > img{
-                        width: 100%;
-                        height: auto;
-                    }
-                    .card{
-
-                        min-width: 400px;
-                        max-width: 400px !important;
-                        min-height: 190px;
-                        position: relative;
-                    }
-                    .card-activites{
-                        background-image: url("https://a.travel-assets.com/mediavault.le/media/4c2c09df5214d54805b617fd7b68cca40258d8ce.jpeg");
-                        display: none;
-                    }
-                    .card-label{
-                        font-family: 'Covered By Your Grace', cursive;
-                        color: #fff;
-                        padding: 5px 15px;
-                        position: absolute;
-                        bottom: 10px;
-                        left: 0;
-                    }
-
-                    .card-flights{
-                        font-size: 11px;
-                    }
-
-                    .card-hotels{
-                        background-image: url("http://blogs-images.forbes.com/lauriewerner/files/2014/08/0901_FL-park-hyatt-sydney_1325x745.jpg");
-                        display: none;
-                    }
-
-                    .card-cars{
-                        background-image: url("http://www.tahoesbest.com/sites/default/files/billboard/car-rental-5-18-1_C.jpg?1337377785");
-                        display: none;
-                    }
-
-                    .card-dining{
-                        background-image: url("https://grabaseat.co.nz/resource/2bb223d9-a8b1-4f7e-8482-84b35923436a?width=1140&height=300");
-                        display: none;
-                    }
-
-                    .card-hidden{
-                        display: none;
-                    }
-
-                    .card-packages{
-                        background-image: url("https://grabaseat.co.nz/resource/e1e537f0-261e-48f0-b102-0814f5f3c2a8?height=705&width=940");
-                        display: none;
-                    }
-
-                    .card-weather{
-                        display: none;
-                    }
-
-                    .card-active{
-                        display: block !important;
-                    }
-                </style>
-                <!-- flight deals -->
-                <style>
-                    .ava-card-flight-offering{
-                        max-width: 400px;
-                        min-width: 400px !important;
-                        max-height: 300px;
-                        position: relative;
-                        padding: 5px 15px;
-                    }
-                    .ava-card-flight{
-                        width: 50%;
-                        padding: 5px;
-                    }
-                    .ava-card-flight-title{
-                        font-size: 12px;
-                    }
-                    .ava-card-flight-direction{
-                        font-size: 28px;
-                        font-weight: 400;
-                    }
-                    .ava-card-flight-time{
-                        font-size: 12px;
-                        font-weight: 200;
-                    }
-                    .ava-card-flight-details{
-                        display: inline-flex;
-                        width: 100%;
-                    }
-                    .ava-card-flights-toggle{
-                        color: white;
-                        text-align: center;
-                        height: 15px;
-                        padding-top: 3px;
-                        width: 100%;
-                        margin: 5px 0;
-                    }
-                    .ava-card-flights-total,.ava-card-flights-price{
-                        font-size: 24px;
-                        font-weight: bold;
-                    }
-                    .ava-card-flights-underline{
-                        width: 100%;
-                        border-bottom: solid 1px #999;
-                    }
-                    .ava-card-flights-price-container{
-                        width: 100%;
-                        display: inline-flex;
-                        margin-top: 5px;
-                    }
-                    .ava-card-flights-payment{
-                        display: inline-flex;
-                        margin-top: 5px;
-                        width: 100%;
-                    }
-                    .ava-card-flights-payment > div{
-                        font-size: 12px;
-                        font-weight: 200;
-                    }
-                    .ava-card-flights-cc{
-                        display: inline-flex;
-                    }
-                    .ava-card-flights-booked{
-                        padding: 5px;
-                        display: none;
-                        font-size: 14px;
-                        font-weight: bold;
-                        color: #2196F3;
-                        text-align: right;
-                    }
-
-                </style>
-
                 <div id="flightOpt1" class="card card-flights shadow ava-card-flight-offering" onclick="setFlightsOptions('NZ0711')">
                     <div style="display: inline-flex; width:100%;">
                         <div class="ava-card-flight">
@@ -692,7 +762,7 @@
 
                 <!-- activities -->
                 <div class="card card-activites shadow">
-                    
+
                     <div class="card-label orange">
                         activites from $39 per person
                     </div>
@@ -713,75 +783,6 @@
                 </div>
 
                 <!-- weather -->
-                <style>
-                    .card-weather-img{
-                        height:60%;
-                        width: 100%;
-                        overflow: hidden;
-                        position: relative;
-                        background-position: 100% 40%;
-                    }
-                    .card-weather-bottom{
-                        height:40%;
-                        width: 100%;
-                        overflow: hidden;
-                    }
-
-                    .card-weather-bottom{
-                        border-top: solid 1px #ccc;
-                    }
-                    .card-weather-ul{
-                        display: inline-flex;
-                        list-style: none;
-                        padding: 0;
-                        width: 100%;
-                        margin: 0;
-                    }
-                    .card-weather-li {
-                        height: 100%;
-                        width: 25%;
-                        color: #999;
-                    }
-                    .card-weather-li > svg{
-                        margin: 0 auto;
-                        /* text-align: center; */
-                        margin-left: 25px;
-                    }
-                    .card-weather-li > h4{
-                        padding: 0;
-                        margin-top: 0;
-                        margin-bottom: 0;
-                        font-size: 12px;
-                        /* text-align: center; */
-                        margin-left: 32px;
-                    }
-                    .card-weather-temp{
-                        text-align: center; margin-top: 0;font-size: 12px;
-                    }
-                    .card-weather-over{
-                        position: absolute;
-                        top:0;
-                        left:0;
-                        width: 100%;
-                        height: 100%;
-                        display: inline-flex;
-                        background-color: rgba(0, 0, 0, 0.1);
-                    }
-                    .card-weather-city{
-                        width: 50%;
-                        color: #fff;
-                        font-size: 20px;
-                        padding-left: 60px;
-                        padding-top: 10px;
-                    }
-                    .card-weather-degrees{
-                        font-size: 80px;
-                        text-align: center;
-                        width: 50%;
-                        color: #fff;
-                        padding-top: 10px;
-                    }
-                </style>
                 <div class="card card-weather shadow">
                     <div class="card-weather-img">
                         <div class="card-weather-over">
@@ -828,7 +829,39 @@
                 </div>
             </div>
 
+            <style>
+                .ava-offerings-left{
+                    left: 0;
+                }
+                .ava-offerings-left > svg{
+                    margin-top: 250px;
+                    margin-left: 5px;
+                    transform: rotate(180deg);
+                }
+                .ava-offerings-right{
+                    right: 0;
+                }
+                .ava-offerings-right > svg{
+                    margin-top: 250px;
+                    margin-right: 5px;
+                    float: right;
+                }
+                .ava-offerings-arrows{
+                    position: absolute;
+                    top: 0;
+                    width:75px;
+                    height:400px;
+                    background: rgba(0,0,0,0.1);
+                }
+            </style>
 
+            <div class="ava-offerings-arrows ava-offerings-left ava-hidden" onclick="move('left')">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"><path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm2 12l-4.5 4.5 1.527 1.5 5.973-6-5.973-6-1.527 1.5 4.5 4.5z"/></svg>
+            </div>
+
+            <div class="ava-offerings-arrows ava-offerings-right ava-hidden" onclick="move('right')">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"><path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm2 12l-4.5 4.5 1.527 1.5 5.973-6-5.973-6-1.527 1.5 4.5 4.5z"/></svg>
+            </div>
         </div>
 
 
@@ -840,6 +873,18 @@
         var requestCriteria = {};
 
         var destination;
+
+        var leftMargin = 0;
+
+        function move(direction){
+            var elem = document.getElementsByClassName('ava-offerings-inner')[0];
+            if(direction === 'left'){
+                leftMargin = leftMargin < 0 ? (leftMargin + -300) : (leftMargin - 300);
+            }else{
+                leftMargin = leftMargin + 300;
+            }
+            elem.style.marginLeft = leftMargin +'px';
+        }
 
         function displayDeals(dest){
             document.getElementsByClassName('offering')[0].style.display = "block";
@@ -984,9 +1029,9 @@
 
         function processCVV(){
             setAvaSpeech("processing now, please hold.");
-            avaCVVTimeout = setTimeout(function(){
+            setTimeout(function(){
                 setAvaSpeech("Great your booked, please check your gmail account for your PNR");
-                setFlightBookState();
+                //setFlightBookState();
             },7000);
             //                callAjax('http://isis-ws-086.isis.airnz.co.nz:3703/vbook/actions/purchaseticketsexpress?submitExpress',function(e){
 //                    console.log('got result');
@@ -999,6 +1044,7 @@
             avaState = avaStateEnum.CHOOSING_FLIGHT;
             setAvaSpeech("NZ0711 departing at 1840 will cost $596 return, or NZ0706 departing at 2040 will cost $496 return");
             toggleOfferingView();
+            setPosition();
         }
 
         var recognizing = false;
@@ -1185,12 +1231,44 @@
             if(adding){
                 numElems++;
                 if(numElems > 3){
-                    container.style.width = (container.offsetWidth + 400) + 'px';
+                    container.style.width = (container.offsetWidth + 300) + 'px';
                 }
             }else{
                 numElems--;
-                container.style.width = (container.offsetWidth - 400) + 'px';
+                container.style.width = (container.offsetWidth - 300) + 'px';
             }
+            setPosition();
+        }
+
+        function setPosition(){
+            var showOverlay = false;
+            if(numElems === 2){
+                leftMargin = 300;
+                move('right');
+            }
+            if(numElems === 3){
+                leftMargin = 0;
+                move('right');
+            }
+            if(numElems > 3){
+                leftMargin = -300;
+                move('right');
+                showOverlay = true;
+            }
+            showLeftRight(showOverlay);
+        }
+
+        function showLeftRight(val){
+            var lelem = document.getElementsByClassName('ava-offerings-left')[0];
+            var relem = document.getElementsByClassName('ava-offerings-right')[0];
+            if(val){
+                lelem.className = 'ava-offerings-arrows ava-offerings-left';
+                relem.className = 'ava-offerings-arrows ava-offerings-right';
+            }else{
+                lelem.className = 'ava-offerings-arrows ava-offerings-left ava-hidden';
+                relem.className = 'ava-offerings-arrows ava-offerings-right ava-hidden';
+            }
+
         }
 
         /**
@@ -1285,7 +1363,7 @@
             var imgsrc;
             switch(val){
                 case ImageSourceEnum.SYDNEY_WEATHER :
-                   imgsrc = 'destimages/Darling-Harbour-areadarling harbour accommodationaccommodation sydney darling harbour-night-sky.jpg';
+                   imgsrc = 'https://static.stayz.com.au/property/image/03/11/63/img_31163_617ea23f4d1c52c4b6e24e1f8d75c754_max800x600.jpg';
                     document.getElementsByClassName('card-weather-img')[0].style.backgroundImage = 'url('+imgsrc+')';
                 break;
             };
